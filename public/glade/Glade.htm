@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>the Glade | sketch London</title>
+    <script async="" src="//www.google-analytics.com/analytics.js"></script>
+    <script async="" src="../lib/analytics.js"></script>
+    <script async="" src="../lib/clarity.js"></script>
+    <script>
+      ;(function (i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r
+        ;(i[r] =
+          i[r] ||
+          function () {
+            ;(i[r].q = i[r].q || []).push(arguments)
+          }),
+          (i[r].l = 1 * new Date())
+        ;(a = s.createElement(o)), (m = s.getElementsByTagName(o)[0])
+        a.async = 1
+        a.src = g
+        m.parentNode.insertBefore(a, m)
+      })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga")
+
+      // ga('create', 'UA-55415467-1', 'auto');
+      let isLive =
+        window.location.hostname.indexOf(".london") >= 0 &&
+        window.location.hostname.indexOf("www3") < 0
+      let gaCode = isLive ? "UA-55415467-1" : "UA-55415467-2"
+      ga("create", gaCode, "auto")
+      ga("send", "pageview")
+    </script>
+    <script type="text/javascript">
+      if (window.location.hostname.indexOf("london") > 0 && window.location.protocol !== "https:")
+        window.location.protocol = "https:"
+    </script>
+    <style type="text/css">
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+    </script> -->
+    <link href="Glade_files/appAnime.css" rel="stylesheet" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link rel="stylesheet" type="text/css" href="Glade_files/style.css" />
+  </head>
+  <body class="white" cz-shortcut-listen="true" style="cursor: pointer">
+    <div id="app">
+      <div data-v-7bdb101f="" class="mad sans fill white">
+        <div data-v-7bdb101f="" class="touch-guard top-left"></div>
+        <div data-v-7bdb101f="" class="touch-guard top-right"></div>
+        <div data-v-7bdb101f="" class="touch-guard bot-left"></div>
+        <div data-v-7bdb101f="" class="touch-guard bot-right"></div>
+     
+        <div data-v-7bdb101f="" class="cookies-modals modals" style="">
+          <div
+            data-v-7bdb101f=""
+            id="cookies"
+            class="cookies-modal modal size-0 shadow-parlour service-night"
+            style="order: 1; bottom: 0px; right: 0px; left: 0px; display: none"
+          >
+            <div data-v-7bdb101f="" class="content">
+              <div data-v-7bdb101f="" class="text">
+                <h6 data-v-7bdb101f="">
+                  Our website uses cookies to improve user experience. By using our website you
+                  consent to all cookies in accordance with our
+                  <a data-v-7bdb101f="">Cookie Policy</a>.
+                </h6>
+              </div>
+              <div data-v-7bdb101f="" class="action">
+                <a data-v-7bdb101f="" class="button">I accept</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      <div class="home-view" style="display: none">
+        <div data-v-38e97594="" class="home">
+          <div data-v-38e97594="" id="container">
+            <canvas style="width: 1536px; height: 703px" width="1920" height="878"></canvas>
+          </div>
+          <div data-v-38e97594="" id="gallery-name-wrapper" class="gallery-name-wrapper">
+            <div data-v-38e97594="" id="gallery-name">
+              <div data-v-38e97594="" class="active-name">
+                <div data-v-38e97594="" to="the-glade" class="active-name-button mad -sans fill">
+                  <span data-v-38e97594="">the Glade</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="" style="">
+        <div data-v-e651fe40="" class="background" name="the Glade">
+          <div
+            data-v-e651fe40=""
+            class="backgound-img"
+            style="
+              background-image: url('https://sketch.london/static/img/background-texture.f39031a.gif');
+            "
+          ></div>
+          <div
+            data-v-e651fe40=""
+            id="cursor"
+            style="width: 130px; height: 130px; left: 832px; top: 445px; opacity: 1"
+            class=""
+          >
+            <div data-v-e651fe40="" id="ring" class="cursor-colour-0 static"></div>
+          </div>
+          <canvas data-v-e651fe40="" id="gladeCanvas" width="1536" height="703"></canvas>
+          <div data-v-e651fe40="" id="brush-size">
+            <div data-v-e651fe40="" id="large"></div>
+            <!---->
+          </div>
+          <div data-v-e651fe40="" id="colours" class="colour-active-0">
+            <div
+              data-v-e651fe40=""
+              data-arr="0"
+              class="activeColour colourSelect"
+              style="background: rgb(80, 159, 24)"
+            ></div>
+            <div
+              data-v-e651fe40=""
+              data-arr="1"
+              class="colourSelect"
+              style="background: rgb(0, 80, 0)"
+            ></div>
+            <div
+              data-v-e651fe40=""
+              data-arr="2"
+              class="colourSelect"
+              style="background: rgb(219, 198, 162)"
+            ></div>
+            <div
+              data-v-e651fe40=""
+              data-arr="3"
+              class="colourSelect"
+              style="background: rgb(100, 80, 0)"
+            ></div>
+          </div>
+          <div data-v-e651fe40="" id="brush-length">
+            <div data-v-e651fe40="" id="long">
+              <svg
+                data-v-e651fe40=""
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 221.17 338.75"
+              >
+                <title data-v-e651fe40="">Untitled-1</title>
+                <path
+                  data-v-e651fe40=""
+                  d="M214,157.88s2.75,4.24,6.88,12c1.06,1.93,2.14,4.11,3.35,6.48s2.44,5,3.71,7.75c2.61,5.56,5.34,11.92,8.14,18.95,1.36,3.53,2.8,7.2,4.14,11s2.72,7.84,4.09,12c2.65,8.26,5.2,17.07,7.44,26.29s4.27,18.83,6,28.66l1.13,7.43c0.35,2.49.79,5,1.06,7.49,0.56,5,1.29,10.06,1.65,15.13l0.68,7.59c0.13,1.26.17,2.53,0.25,3.8l0.25,3.8,0.48,7.58,0.25,7.55c0.06,2.51.22,5,.2,7.5s0,5-.07,7.43,0,4.92-.19,7.34-0.32,4.83-.49,7.22-0.32,4.76-.64,7.09-0.6,4.64-.92,6.92-0.66,4.53-1,6.76l-1.28,6.55c-0.42,2.15-.84,4.27-1.28,6.35s-0.92,4.12-1.42,6.12c-1,4-2,7.85-3,11.53s-2.26,7.14-3.33,10.44l-1.61,4.81c-0.53,1.56-1.15,3-1.71,4.48-1.12,2.89-2.21,5.57-3.22,8.05L242,453.52c-0.5,1.12-1,2.18-1.49,3.18-1.93,4-3.47,7.14-4.57,9.25s-1.69,3.23-1.69,3.23l-1.51-.53s0.17-1.26.54-3.61,1-5.76,1.74-10.06l0.64-3.39,0.58-3.75c0.42-2.6.88-5.4,1.41-8.38,0.24-1.49.56-3,.8-4.61l0.71-4.9,1.64-10.5c0.88-7.36,2.11-15.24,2.94-23.64l0.74-6.36c0.19-2.15.36-4.34,0.58-6.53s0.43-4.42.68-6.66,0.37-4.51.57-6.8,0.4-4.59.64-6.91l0.17-1.74,0.12-1.75,0.26-3.52c0.18-2.36.35-4.73,0.56-7.12s0.27-4.79.41-7.2l0.37-7.27c0.07-2.43.08-4.88,0.12-7.32s0.1-4.91,0-7.36l-0.21-7.37c-0.08-4.93-.52-9.83-0.8-14.73-0.12-2.45-.42-4.88-0.63-7.32l-0.71-7.27c-1.2-9.63-2.4-19.14-4.1-28.25-0.76-4.58-1.72-9-2.61-13.41-0.42-2.19-1-4.33-1.45-6.47s-0.93-4.25-1.47-6.3c-1-4.13-2-8.16-3.15-12s-2.19-7.58-3.26-11.15c-2.24-7.1-4.38-13.6-6.52-19.27s-4.08-10.59-5.77-14.61c-3.39-8-5.71-12.43-5.71-12.43Z"
+                  transform="translate(-127.73 -157.88)"
+                ></path>
+                <path
+                  data-v-e651fe40=""
+                  d="M348.9,185.48s-0.53.51-1.41,1.49c-0.45.47-1,1.1-1.61,1.85s-1.36,1.57-2.11,2.58l-2.52,3.28-2.82,4c-0.51.7-1,1.44-1.5,2.23l-1.54,2.4-1.62,2.52c-0.55.86-1.05,1.78-1.6,2.7l-3.35,5.75-3.29,6.32c-0.56,1.09-1.15,2.17-1.69,3.3l-1.61,3.45-3.31,7.11L315.85,242l-1.58,3.81c-0.53,1.27-1,2.6-1.46,3.91-1.89,5.26-4,10.52-5.54,16-0.81,2.72-1.68,5.41-2.45,8.13-0.41,1.35-.75,2.72-1.06,4.1l-1,4.1c-1.22,5.46-2.63,10.74-3.81,15.92-0.66,2.57-1.34,5.09-2.09,7.53-0.36,1.23-.76,2.43-1.14,3.62s-0.81,2.36-1.12,3.54c-1.35,4.7-2.75,9.12-4.16,13.19-0.68,2-1.43,4-2.07,5.85s-1.19,3.65-1.79,5.31c-1.16,3.34-2.28,6.24-3.26,8.63s-1.8,4.26-2.41,5.54-0.94,2-.94,2l-1.58-.23s-0.12-.75-0.26-2.14-0.33-3.43-.49-6-0.27-5.75-.29-9.35c0-1.81,0-3.72,0-5.75s0.27-4.12.47-6.32c0.38-4.4.92-9.16,1.63-14.17,0.32-2.51.92-5,1.46-7.65s1.22-5.23,1.93-7.9a134.33,134.33,0,0,1,5.61-16.09l1.59-4.07,0.79-2c0.27-.68.59-1.35,0.88-2,1.21-2.69,2.32-5.42,3.48-8.12,2.15-5.47,4.82-10.75,7.28-16,0.64-1.3,1.21-2.62,1.89-3.89l2.05-3.77,4.05-7.36c1.42-2.37,2.86-4.67,4.25-6.93l2.06-3.35c0.69-1.09,1.46-2.13,2.17-3.18l4.2-6,4.19-5.46c0.68-.86,1.3-1.74,2-2.54l2-2.35,1.91-2.22c0.61-.73,1.22-1.41,1.85-2.06l3.44-3.64c1.1-1.09,2.15-2.06,3.07-2.94s1.8-1.63,2.55-2.29,1.39-1.21,1.95-1.64c1.09-.88,1.67-1.29,1.67-1.29Z"
+                  transform="translate(-127.73 -157.88)"
+                ></path>
+                <path
+                  data-v-e651fe40=""
+                  d="M323.46,335.4s-1.23,1.78-3.22,5c-1,1.63-2.16,3.62-3.45,5.93s-2.68,5-4.17,7.83-3,6-4.52,9.43-3.07,7-4.52,10.71-2.89,7.64-4.28,11.61c-0.67,2-1.31,4-2,6s-1.26,4.06-1.81,6.11-1.13,4.1-1.52,6.18l-0.65,3.1c-0.2,1-.36,2.07-0.54,3.1l-0.54,3.06-0.48,3-1.08,5.9c-0.21,1-.4,1.92-0.63,2.85s-0.4,1.88-.62,2.8l-1.34,5.4c-0.93,3.51-1.75,6.86-2.63,10l-1.2,4.47L283.12,452c-0.69,2.57-1.48,4.82-2,6.7s-1.1,3.36-1.49,4.38-0.62,1.57-.62,1.57l-1.6,0s-0.23-.54-0.6-1.57-0.87-2.55-1.45-4.5a71.86,71.86,0,0,1-1.56-7.09c-0.29-1.38-.42-2.85-0.62-4.4s-0.36-3.2-.43-4.9-0.11-3.49-.15-5.34,0.09-3.75.19-5.71,0.31-4,.57-6c0.14-1,.27-2.05.45-3.08s0.42-2.06.64-3.11,0.48-2.09.76-3.14,0.62-2.09.95-3.13,0.68-2.1,1-3.14l1.18-3.13c1.59-4.19,3.37-8.36,5.07-12.54,0.83-2.1,1.78-4.14,2.66-6.2s1.88-4.06,2.85-6c2-4,4-7.8,6.13-11.43s4.26-7.07,6.4-10.26,4.24-6.14,6.23-8.82,3.92-5.06,5.65-7.13,3.29-3.85,4.61-5.27c2.62-2.85,4.27-4.37,4.27-4.37Z"
+                  transform="translate(-127.73 -157.88)"
+                ></path>
+                <path
+                  data-v-e651fe40=""
+                  d="M297.62,465.49s0.13-1.31.48-3.57c0.15-1.14.39-2.5,0.67-4.07s0.6-3.34,1-5.25,0.85-4,1.39-6.18,1.11-4.49,1.76-6.86,1.4-4.81,2.19-7.27,1.73-4.93,2.6-7.43,1.76-5,2.6-7.52a44.1,44.1,0,0,1,3-7.14,34.82,34.82,0,0,1,4.27-5.9,41.45,41.45,0,0,1,9.44-8,27.72,27.72,0,0,1,4.07-2.09c1.2-.5,2.15-0.85,2.83-1.06s1.05-.3,1.05-0.3l1.18,1.08s0,0.4-.14,1.1-0.28,1.7-.54,2.9c-0.13.6-.3,1.24-0.47,1.93s-0.4,1.41-.6,2.2a49.62,49.62,0,0,1-1.59,5l-1,2.78c-0.36.94-.75,1.9-1.18,2.86s-0.85,2-1.34,3a30.84,30.84,0,0,1-1.62,2.94c-0.63.95-1.25,1.94-2,2.9s-1.47,1.91-2.23,2.88c-1.52,1.94-3,4-4.35,6.08l-3.87,6.42c-1.24,2.15-2.54,4.23-3.7,6.31l-1.77,3-1.66,2.93c-1.11,1.9-2.08,3.73-3,5.41l-2.51,4.62-1.9,3.59L299.15,466Z"
+                  transform="translate(-127.73 -157.88)"
+                ></path>
+                <path
+                  data-v-e651fe40=""
+                  d="M128.61,289.53a90.17,90.17,0,0,1,8.28,5.64c2.54,1.92,5.58,4.32,8.89,7.29s7,6.38,10.73,10.39q1.44,1.47,2.85,3.08c0.95,1.07,1.93,2.14,2.9,3.26,1.89,2.27,3.91,4.58,5.82,7.08,4,4.91,7.72,10.4,11.48,16.18,1.8,2.93,3.72,5.88,5.43,9,0.87,1.55,1.78,3.09,2.63,4.68l2.46,4.82,1.24,2.43,1.16,2.48,2.31,5c1.48,3.36,2.87,6.78,4.27,10.2s2.63,6.91,3.86,10.38l1.79,5.22,0.9,2.6c0.3,0.87.54,1.75,0.81,2.62a167.68,167.68,0,0,1,5.25,20.76c0.54,3.43,1.07,6.8,1.43,10.12s0.5,6.59.68,9.76c0.12,1.58.13,3.15,0.13,4.69l0,4.55,0,4.39c0,1.44-.14,2.85-0.22,4.23-0.16,2.76-.37,5.4-0.57,7.9-0.08,1.25-.27,2.47-0.42,3.65s-0.31,2.33-.47,3.44c-0.31,2.22-.64,4.29-1,6.2-0.14,1-.33,1.87-0.52,2.74l-0.55,2.49c-0.73,3.15-1.34,5.6-1.8,7.27s-0.72,2.55-.72,2.55l-1.6-.1s-0.19-.91-0.49-2.61-0.7-4.18-1.14-7.32-1-6.93-1.59-11.25c-0.33-2.16-.52-4.46-0.91-6.86s-0.75-4.93-1.09-7.56l-0.54-4-0.67-4.15c-0.43-2.81-.8-5.73-1.31-8.69s-1-6-1.49-9.13-1.11-6.26-1.6-9.5c-0.2-1.62-.54-3.23-0.8-4.87s-0.53-3.29-.79-5l-0.39-2.5c-0.17-.83-0.3-1.67-0.46-2.5l-0.9-5.06c-0.16-.85-0.29-1.7-0.47-2.54l-0.56-2.53-1.14-5.09c-0.34-1.71-.86-3.38-1.33-5.06L187,385.27c-1.08-3.32-2.15-6.66-3.31-10l-1.83-4.89L180.92,368l-1-2.39-2-4.76-2.11-4.65c-1.35-3.11-2.92-6.07-4.38-9-3.06-5.84-6.23-11.4-9.52-16.5-1.59-2.59-3.3-5-4.89-7.38-0.82-1.17-1.66-2.3-2.47-3.42s-1.61-2.21-2.44-3.25c-3.21-4.24-6.38-8-9.26-11.19s-5.57-5.9-7.79-8.09-4.09-3.78-5.36-4.86l-1.47-1.2-0.51-.4Z"
+                  transform="translate(-127.73 -157.88)"
+                ></path>
+                <path
+                  data-v-e651fe40=""
+                  d="M155.42,215.26s1.8,2.12,4.75,5.95c1.49,1.91,3.23,4.27,5.2,7s4.15,5.86,6.42,9.34,4.69,7.28,7.19,11.35c1.22,2,2.5,4.14,3.72,6.33s2.51,4.41,3.75,6.7c2.51,4.57,5,9.37,7.35,14.33s4.65,10.06,6.78,15.24l1.63,3.88q0.76,2,1.57,3.9c1.09,2.58,2.08,5.19,3.09,7.78a130.56,130.56,0,0,1,5.07,15.53c0.65,2.57,1.12,5.15,1.58,7.66s0.69,5,1,7.44a116.54,116.54,0,0,1,.64,13.75,110.41,110.41,0,0,1-.68,11.63c-0.43,3.45-1,6.45-1.46,8.89s-1.1,4.35-1.49,5.64-0.62,2-.62,2l-1.6,0s-0.23-.69-0.6-2-0.87-3.15-1.45-5.5-1.38-5.19-2.14-8.41-1.69-6.83-2.72-10.73c-0.51-1.95-.94-4-1.54-6.07s-1-4.25-1.64-6.46L198.32,337q-0.41-1.71-.87-3.44c-0.63-2.31-1.13-4.7-1.72-7.12-1.13-4.85-2.09-9.92-3.21-15.08-0.57-2.57-1.13-5.18-1.82-7.77s-1.39-5.18-2.17-7.76c-1.54-5.16-3.29-10.26-5.06-15.27s-3.63-9.92-5.53-14.64-3.84-9.24-5.68-13.54-3.72-8.31-5.51-12-3.43-7.06-4.94-10-2.88-5.53-4-7.64c-2.27-4.23-3.68-6.56-3.68-6.56Z"
+                  transform="translate(-127.73 -157.88)"
+                ></path>
+              </svg>
+            </div>
+            <!---->
+          </div>
+          <button data-v-e651fe40="" id="reset" class="reset icon">
+            <svg
+              data-v-e651fe40=""
+              width="100%"
+              height="100%"
+              viewBox="0 0 30 30"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <g data-v-e651fe40="" id="Artboard">
+                <path
+                  data-v-e651fe40=""
+                  d="M14.393031,26.4151111 C20.4681632,26.4151111 25.393031,21.4902434 25.393031,15.4151111 C25.393031,9.33997886 20.4681632,4.41511111 14.393031,4.41511111 C8.31789873,4.41511111 3.39303098,9.33997886 3.39303098,15.4151111"
+                  id="Oval"
+                  stroke="#000000"
+                  fill="none"
+                  stroke-width="2"
+                  transform="translate(14.393031, 15.415111) rotate(-140.000000) translate(-14.393031, -15.415111) "
+                ></path>
+                <polygon
+                  data-v-e651fe40=""
+                  id="Triangle"
+                  fill="#000000"
+                  transform="translate(24.000000, 9.000000) rotate(-230.000000) translate(-24.000000, -9.000000) "
+                  points="24.3802041 5 30 13 18 13"
+                ></polygon>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <style type="text/css">
+      #botsify-chat-widget-div {
+        position: fixed;
+        right: 0;
+        bottom: 100px;
+        z-index: 1000000;
+        height: 0;
+        width: 0 !important;
+        border-radius: 18px;
+      }
+      #promo-speech-bubble {
+        position: fixed;
+        right: 5px;
+        background-color: #fff;
+        border-radius: 3px;
+        width: 25%;
+        box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+        border: 1px solid #eee;
+      }
+      #promo-close,
+      .wpic-launcher {
+        cursor: pointer;
+        border-radius: 50%;
+      }
+      #padded-container {
+        padding: 19px 21px;
+      }
+      #bubble-point {
+        width: 24px;
+        height: 18px;
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMThweCIgdmlld0JveD0iMCAwIDI0IDE4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggMy40LjIgKDE1ODU1KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5SZWN0YW5nbGUgOCBDb3B5IDk8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz4KICAgICAgICA8ZmlsdGVyIHg9Ii01MCUiIHk9Ii01MCUiIHdpZHRoPSIyMDAlIiBoZWlnaHQ9IjIwMCUiIGZpbHRlclVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgaWQ9ImZpbHRlci0xIj4KICAgICAgICAgICAgPGZlT2Zmc2V0IGR4PSIwIiBkeT0iMiIgaW49IlNvdXJjZUFscGhhIiByZXN1bHQ9InNoYWRvd09mZnNldE91dGVyMSI+PC9mZU9mZnNldD4KICAgICAgICAgICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMiIgaW49InNoYWRvd09mZnNldE91dGVyMSIgcmVzdWx0PSJzaGFkb3dCbHVyT3V0ZXIxIj48L2ZlR2F1c3NpYW5CbHVyPgogICAgICAgICAgICA8ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAgMCAgIDAgMCAwIDAgMCAgIDAgMCAwIDAgMCAgMCAwIDAgMC4xNDg4MDU0OCAwIiBpbj0ic2hhZG93Qmx1ck91dGVyMSIgdHlwZT0ibWF0cml4IiByZXN1bHQ9InNoYWRvd01hdHJpeE91dGVyMSI+PC9mZUNvbG9yTWF0cml4PgogICAgICAgICAgICA8ZmVNZXJnZT4KICAgICAgICAgICAgICAgIDxmZU1lcmdlTm9kZSBpbj0ic2hhZG93TWF0cml4T3V0ZXIxIj48L2ZlTWVyZ2VOb2RlPgogICAgICAgICAgICAgICAgPGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIj48L2ZlTWVyZ2VOb2RlPgogICAgICAgICAgICA8L2ZlTWVyZ2U+CiAgICAgICAgPC9maWx0ZXI+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4KICAgICAgICA8ZyBpZD0iSE9NRVBBR0UtLS1GSU5BTC13aXRoLXByb21vIiBza2V0Y2g6dHlwZT0iTVNBcnRib2FyZEdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTMzMi4wMDAwMDAsIC01MTYuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJIRVJPIiBza2V0Y2g6dHlwZT0iTVNMYXllckdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMi4wMDAwMDAsIC0xLjAwMDAwMCkiPjwvZz4KICAgICAgICAgICAgPGcgaWQ9IlBST01PIiBza2V0Y2g6dHlwZT0iTVNMYXllckdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTA4LjAwMDAwMCwgMzgzLjAwMDAwMCkiIGZpbHRlcj0idXJsKCNmaWx0ZXItMSkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTEyLDE1Ljk5NjI0NzQgQzEyLDE0LjM0MTQ2NTYgMTMuMzM2OTAzOSwxMyAxNS4wMDk4MzYyLDEzIEwyNjguOTkwMTY0LDEzIEMyNzAuNjUyNDUsMTMgMjcyLDE0LjM0NzY1NjIgMjcyLDE1Ljk5NjI0NzQgTDI3MiwxMzAuMDAzNzUzIEMyNzIsMTMxLjY1ODUzNCAyNzAuNjYzMDk2LDEzMyAyNjguOTkwMTY0LDEzMyBMMTUuMDA5ODM2MiwxMzMgQzEzLjM0NzU0OTYsMTMzIDEyLDEzMS42NTIzNDQgMTIsMTMwLjAwMzc1MyBMMTIsMTUuOTk2MjQ3NCBaIE0yMjQsMTMzIEwyNDgsMTMzIEwyMzYsMTQ5IEwyMjQsMTMzIFoiIGlkPSJSZWN0YW5nbGUtOC1Db3B5LTkiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+)
+          no-repeat;
+        position: absolute;
+        bottom: -15px;
+        right: 20px;
+      }
+      #promo-close {
+        background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8dGl0bGU+CiAgICBTaGFwZSArIFNoYXBlCiAgPC90aXRsZT4KICA8ZyBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPHBhdGggZD0iTTIuMTE1IDEuNzI3bDEwLjQgMTEuMjY3LjI5NC4zMTguNjM2LS41ODgtLjI5NC0uMzE4TDIuNzUyIDEuMTQgMi40NTguODJsLS42MzcuNTkuMjk1LjMxN3oiLz4KICAgIDxwYXRoIGQ9Ik0xMi40MDYgMS4xMTVMMS4xNCAxMS41MTVsLS4zMi4yOTQuNTkuNjM2LjMxNy0uMjk0IDExLjI2Ny0xMC40LjMxOC0uMjk0LS41ODgtLjYzNy0uMzE4LjI5NXoiLz4KICA8L2c+Cjwvc3ZnPgo=)
+          center no-repeat #ee6123;
+        background-position-x: 0;
+        background-position-y: 0;
+        position: absolute;
+        top: -13px;
+        left: -13px;
+        height: 26px;
+        width: 26px;
+        z-index: 2;
+      }
+      #promo-description {
+        color: #9b9b9b;
+        font-size: 13px;
+        font-family: ProximaNova-Regular, sans-serif;
+        line-height: 18px;
+      }
+      .wpic-launcher {
+        z-index: 1000000;
+        width: 60px;
+        height: 60px;
+        -webkit-transition: box-shadow 80ms ease-in-out;
+        transition: box-shadow 80ms ease-in-out;
+        outline: 0;
+        background: #1f8ceb;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06), 0 2px 32px rgba(0, 0, 0, 0.16);
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+      }
+      .wpic-launcher-open {
+        -webkit-transition: opacity 0.08s linear, -webkit-transform 0.16s linear;
+        transition: opacity 0.08s linear, -webkit-transform 0.16s linear;
+        transition: transform 0.16s linear, opacity 0.08s linear;
+        transition: transform 0.16s linear, opacity 0.08s linear, -webkit-transform 0.16s linear;
+        -webkit-transform: rotate(0) scale(1);
+        transform: rotate(0) scale(1);
+        opacity: 1;
+        position: absolute;
+        top: 13px;
+        left: 13px;
+      }
+      .wpic-launcher-close {
+        -webkit-transition: opacity 0.08s linear, -webkit-transform 0.16s linear;
+        transition: opacity 0.08s linear, -webkit-transform 0.16s linear;
+        transition: transform 0.16s linear, opacity 0.08s linear;
+        transition: transform 0.16s linear, opacity 0.08s linear, -webkit-transform 0.16s linear;
+        -webkit-transform: rotate(-30deg);
+        transform: rotate(-30deg);
+        opacity: 0;
+        position: absolute;
+        top: 17px;
+        left: 17px;
+      }
+      .wpic-launcher path {
+        fill: #fff;
+      }
+      .wpic-launcher.botsify-active .wpic-launcher-open {
+        -webkit-transform: rotate(30deg) scale(0);
+        transform: rotate(30deg) scale(0);
+        opacity: 0;
+      }
+      .wpic-launcher.botsify-active .wpic-launcher-close {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+        opacity: 1;
+      }
+      .popup-get-started-button {
+        background: white;
+        margin: -7px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, Verdana, sans-serif;
+        line-height: 36px;
+      }
+      #popup-get-started {
+        width: 90%;
+        margin-left: 10px;
+      }
+      .get-started-button {
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+        color: black;
+      }
+      .popup-content-div {
+        cursor: pointer;
+      }
+      #wpic-login-form {
+        margin-bottom: 0;
+      }
+      .botsify-quick_msg {
+        background: #3db2d0 !important;
+        box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14), 0 3px 1px -2px rgba(156, 39, 176, 0.2),
+          0 1px 5px 0 rgba(156, 39, 176, 0.12);
+        border: #3db2d0;
+        margin: 6px 2px 2px;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 400;
+        border-radius: 32px;
+        padding: 6px;
+        font-size: 11px !important;
+        min-width: 50px;
+        line-height: 15px;
+        text-transform: capitalize;
+      }
+      .botsify-quick_replies {
+        text-align: center;
+      }
+      .wpic-launcher {
+        background-repeat: no-repeat;
+      }
+      @-webkit-keyframes scale-in-br {
+        0% {
+          -webkit-transform: scale(0);
+          transform: scale(0);
+          -webkit-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+          opacity: 1;
+        }
+        100% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          -webkit-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+          opacity: 1;
+        }
+      }
+      @keyframes scale-in-br {
+        0% {
+          -webkit-transform: scale(0);
+          transform: scale(0);
+          -webkit-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+          opacity: 1;
+        }
+        100% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          -webkit-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+          opacity: 1;
+        }
+      }
+      .widget-div-active {
+        -webkit-animation: scale-in-br 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        animation: scale-in-br 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        height: 80% !important;
+        max-width: 370px !important;
+        width: 98% !important;
+        right: 20px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09), 0 4px 50px rgba(0, 0, 0, 0.24);
+        max-height: 615px;
+      }
+    </style>
+
+<script type="text/javascript" src="../lib/manifest.d0b89aa812f78bb4311a.js"></script>
+<script type="text/javascript" src="../lib/vendor.5a40edea417af077bd24.js"></script>
+
+    <script type="text/javascript" src="Glade_files/appAnime.js"></script>
+  </body>
+</html>
