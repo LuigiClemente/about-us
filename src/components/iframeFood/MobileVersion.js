@@ -14,7 +14,7 @@ const MobileVersion = () => {
         </svg>
       </button>
       <ul className="px-10 text-2xl flex flex-col h-5/6 justify-center gap-8 font-PlayFair">
-        <li>AI is in the spotlight, as we craft a game-changing Language Model in the making!</li>
+        <li>We will use this mobile model in the desktop version as well!</li>
         <li> While we toil behind the scenes a delightful digital banquet of food animations awaits your enjoyment.</li>
         <li>Contact Us @ Info@friendlysquad.io</li>
       </ul>
