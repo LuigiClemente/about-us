@@ -66,93 +66,7 @@ webpackJsonp(
           menus: [],
           reservations: [],
         },
-        // actions: {
-        //   fetchCombinedStaticData: function (e) {
-        //     var t = this,
-        //       n = e.commit
-        //     return r()(
-        //       i.a.mark(function e() {
-        //         var o, a, r
-        //         return i.a.wrap(
-        //           function (e) {
-        //             for (;;)
-        //               switch ((e.prev = e.next)) {
-        //                 case 0:
-        //                   return (
-        //                     (o = "https://sketch.london/api/results.json"),
-        //                     (a = new Headers()),
-        //                     a.append("pragma", "no-cache"),
-        //                     a.append("cache-control", "no-cache"),
-        //                     (e.next = 6),
-        //                     fetch(o, { method: "GET", headers: a })
-        //                       .then(function (e) {
-        //                         return e.json()
-        //                       })
-        //                       .then(function (e) {
-        //                         if (e.data && e.data.allEvents && e.data.allRooms && e.data.nav)
-        //                           return (
-        //                             n("setHappenings", e.data.allEvents),
-        //                             n("setReservations", e.data.allRooms),
-        //                             n("setModals", e.data.allRooms),
-        //                             n("setNavs", e.data.nav),
-        //                             e.data
-        //                           )
-        //                         throw new Error("cannot resolve static data.")
-        //                       })
-        //                       .catch(function (e) {})
-        //                   )
-        //                 case 6:
-        //                   return (r = e.sent), e.abrupt("return", r)
-        //                 case 8:
-        //                 case "end":
-        //                   return e.stop()
-        //               }
-        //           },
-        //           e,
-        //           t
-        //         )
-        //       })
-        //     )()
-        //   },
-        //   fetchCombinedStaticDataLocally: function (e) {
-        //     var t = this,
-        //       n = e.commit
-        //     return r()(
-        //       i.a.mark(function e() {
-        //         var o
-        //         return i.a.wrap(
-        //           function (e) {
-        //             for (;;)
-        //               switch ((e.prev = e.next)) {
-        //                 case 0:
-        //                   if (
-        //                     ((o = u.a),
-        //                     !(o.data && o.data.allEvents && o.data.allRooms && o.data.nav))
-        //                   ) {
-        //                     e.next = 9
-        //                     break
-        //                   }
-        //                   return (
-        //                     n("setHappenings", o.data.allEvents),
-        //                     n("setReservations", o.data.allRooms),
-        //                     n("setModals", o.data.allRooms),
-        //                     n("setNavs", o.data.nav),
-        //                     e.abrupt("return", o.data)
-        //                   )
-        //                 case 9:
-        //                   throw new Error("cannot resolve static data.")
-        //                 case 10:
-        //                 case "end":
-        //                   return e.stop()
-        //               }
-        //           },
-        //           e,
-        //           t
-        //         )
-        //       })
-        //     )()
-        //   }
-        // },
+        
         getters: {
           getCount: function (e) {
             return e.count
@@ -11209,145 +11123,145 @@ webpackJsonp(
       e.exports = 'https://sketch.london/static/img/sketch-logo-white.2880dd6.svg'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/cake_01.2f3ea05.png'
+      e.exports = '../foods/cake-1.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/cake_02.96fec59.png'
+      e.exports = '../foods/cake-2.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/cake_03.42072e9.png'
+      e.exports = '../foods/cake-3.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/cake_04.5056bdb.png'
+      e.exports = '../foods/cake-4.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/cake_05.6dc7f63.png'
+      e.exports = '../foods/cake-5.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/cake_06.4847627.png'
+      e.exports = '../foods/cake-6.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/cake_07.f104679.png'
+      e.exports = '../foods/cake-7.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/cake_08.08c5a3e.png'
+      e.exports = '../foods/cake-8.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/cake_09.7bb8a95.png'
+      e.exports = '../foods/cake-9.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/cake_10.e3a0677.png'
+      e.exports = '../foods/cake-10.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/coronation_chicken_sandwich.0087c4f.png'
+      e.exports = '../foods/coronation-chicken-sandwich.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/cucumber_sandwich.a3c9ca5.png'
+      e.exports = '../foods/cucumber-sandwich.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/egg_sandwich.7ba8bfc.png'
+      e.exports = '../foods/egg-sandwich.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/elcair.6cf9c86.png'
+      e.exports = '../foods/elcair.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/macaroon.385cc05.png'
+      e.exports = '../foods/macaroon.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/malabar_marshmallow.33a0664.png'
+      e.exports = '../foods/malabar-marshmallow.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/meringue.f50b79e.png'
+      e.exports = '../foods/meringue.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/salmon_sandwich.f8091fd.png'
+      e.exports = '../foods/salmon-sandwich.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/scone_01.c295d77.png'
+      e.exports = '../foods/scone-1.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/scone_02.f381011.png'
+      e.exports = '../foods/scone-2.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/plate-bottom.47f8271.png'
+      e.exports = '../foods/plate-bottom.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/plate-mid.e8a5baa.png'
+      e.exports = '../foods/plate-mid.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/plate-top.a761bfa.png'
+      e.exports = '../foods/plate-top.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/cauliflower.038ba34.png'
+      e.exports = '../foods/cauliflower.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/chives.b1d9e26.png'
+      e.exports = '../foods/chives.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/icecream.a73016c.png'
+      e.exports = '../foods/icecream.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/puree_1.4e58aec.png'
+      e.exports = '../foods/puree-1.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/puree_2.5b98d1c.png'
+      e.exports = '../foods/puree-2.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/puree_3.e44ca9b.png'
+      e.exports = '../foods/puree-3.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/puree_4.5f74b55.png'
+      e.exports = '../foods/puree-4.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/puree_5.eaa5f2e.png'
+      e.exports = '../foods/puree-5.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/acc01.8a7a0b6.png'
+      e.exports = '../foods/acc-01.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/acc02.ef0a780.png'
+      e.exports = '../foods/acc-02.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/acc03.69464a3.png'
+      e.exports = '../foods/acc-03.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/acc04.17f53ff.png'
+      e.exports = '../foods/acc-04.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/cauliflower.907e8ab.png'
+      e.exports = '../foods/cauliflower.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/chantilly.5981bd2.png'
+      e.exports = '../foods/chantilly.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/duck.fc29ba6.png'
+      e.exports = '../foods/duck.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/foie-gras.02ac383.png'
+      e.exports = '../foods/foie-gras.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/icecream.7ef412e.png'
+      e.exports = '../foods/icecream.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/lamb.3eb6a1b.png'
+      e.exports = '../foods/lamb.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/mushrooms.1ddf31d.png'
+      e.exports = '../foods/mushrooms.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/onion-rings.0c9ff11.png'
+      e.exports = '../foods/onion-rings.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/oyster.cfa67e7.png'
+      e.exports = '../foods/oyster.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/prawn.b5a62f8.png'
+      e.exports = '../foods/prawn.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/scallop.6d4361d.png'
+      e.exports = '../foods/scallop.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/tartare.5796347.png'
+      e.exports = '../foods/tartare.png'
     },
     function (e, t, n) {
       e.exports = 'https://sketch.london/static/img/background-texture-2.112f55e.gif'
