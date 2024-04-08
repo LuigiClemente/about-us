@@ -11264,22 +11264,22 @@ webpackJsonp(
       e.exports = '../foods/tartare.png'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/background-texture-2.112f55e.gif'
+      e.exports = '../background/background-texture-2.gif'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/background-texture-3.19ac119.gif'
+      e.exports = '../background/background-texture-3.gif'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/background-texture-4.bdd0269.gif'
+      e.exports = '../background/background-texture-4.gif'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/background-texture-5.f31b63d.gif'
+      e.exports = '../background/background-texture-5.gif'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/background-texture.f39031a.gif'
+      e.exports = '../background/background-texture.gif'
     },
     function (e, t, n) {
-      e.exports = 'https://sketch.london/static/img/background.9986335.gif'
+      e.exports = '../background/background.gif'
     },
     function (e, t) {
       e.exports =
