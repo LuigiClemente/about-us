@@ -1,80 +1,188 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Engine, Render, Bodies, Composite, Runner, World, Body, MouseConstraint, Mouse, Vertices, Query } from 'matter-js'; // Mockup imports for physics library functions.
+import { Engine, Render, Runner, World, Bodies, Composite, Mouse, MouseConstraint } from 'matter-js';
+import { foodList } from './utils/data/foodList';
 
 const GameComponent = () => {
-  const interactionAreaRef = useRef(null);
-  const [scene, setScene] = useState({
-    food: [],
-    foodScale: 0.5,
-    mode: 'night',
-    defaultCategory: 1,
-    platesCategory: 2,
-    standsCategory: 4,
-    foodCategory: 8,
-    wallCategory: 3,
-    furnitureScale: 4,
-    worldScale: Math.min(window.innerWidth, window.innerHeight) / 1500,
-    walls: false,
-    plate1: false
-  });
-  const [world, setWorld] = useState(null);
-  const [engine, setEngine] = useState(null);
-  const [nextFood, setNextFood] = useState(null);
-
-  // Similar to mounted in Vue
-  useEffect(() => {
-    const eng = Engine.create({
-      positionIterations: 10,
-      velocityIterations: 10,
-      world: {
-        gravity: { x: 0, y: 3 }
-      }
-    });
-    const render = Render.create({
-      element: interactionAreaRef.current,
-      engine: eng,
-      options: {
-        width: window.innerWidth,
-        height: window.innerHeight,
-        background: '#fffafa',
-        wireframes: false
-      }
+    const [scene, setScene] = useState({
+        mode: 'night',
+        worldScale: Math.min(window.innerWidth, window.innerHeight) / 1500,
+        furnitureScale: 1,
+        food: [],
+        nextFood: null,
+        walls: false,
+        platesCategory: 2,
+        foodCategory: 8,
+        standsCategory: 4,
+        wallCategory: 3,
     });
 
-    Runner.run(eng)
-    Render.run(render);
+    const interactionAreaRef = useRef(null);
+    const engine = useRef(Engine.create({
+        gravity: { x: 0, y: 3 },
+        positionIterations: 12,
+        velocityIterations: 12,
+        constraintIterations: 10,
+    }));    
+    const runner = useRef(Runner.create());
 
-    // Add walls and other bodies initially here...
-    // Example:
-    const walls = [
-      Bodies.rectangle(window.innerWidth / 2, window.innerHeight, window.innerWidth / 1.5, 30, { isStatic: true }),
-      Bodies.rectangle(window.innerWidth / 2, window.innerHeight - 60, window.innerWidth / 1.5, 30, { isStatic: true })
-    ];
-    World.add(eng.world, walls);
+    useEffect(() => {
+        if (interactionAreaRef.current) {
+            const render = Render.create({
+                element: interactionAreaRef.current,
+                engine: engine.current,
+                options: {
+                    width: window.innerWidth,
+                    height: window.innerHeight,
+                    background: '#fffafa',
+                    wireframes: false,
+                },
+            });
+    
+            Render.run(render);
+            Runner.run(runner.current, engine.current);
+    
+            // Create Mouse
+            const mouse = Mouse.create(render.canvas);
+    
+            // Create Mouse Constraint without collision filtering to see if it works generally
+            const mouseConstraint = MouseConstraint.create(engine.current, {
+                mouse: mouse,
+                constraint: {
+                    stiffness: 1,
+                    render: { visible: true } // Set visible to true for debugging
+                }
+            });
+            World.add(engine.current.world, mouseConstraint);
+    
+            return () => {
+                Render.stop(render);
+                Runner.stop(runner.current);
+                World.clear(engine.current.world);
+                Engine.clear(engine.current);
+                if (render.canvas) {
+                    render.canvas.remove();
+                }
+            };
+        }
+    }, [interactionAreaRef]); // Make sure the effect reruns if the ref changes
+    
 
-    setWorld(World);
-    setEngine(eng);
-
-    // Cleanup function similar to beforeDestroy in Vue
-    return () => {
-      // Dispose resources and listeners
-      Render.stop(render);
-      World.clear(eng.world);
-      Engine.clear(eng);
+    const handleResize = () => {
+        setScene(prev => ({
+            ...prev,
+            worldScale: Math.min(window.innerWidth, window.innerHeight) / 1500,
+        }));
     };
-  }, []);
 
-  // This method would be similar to one of the Vue methods
-  const swapWorld = () => {
-    // Logic to swap between day and night modes or similar
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const swapWorld = () => {
+        setScene(prev => ({
+            ...prev,
+            mode: prev.mode === 'day' ? 'night' : 'day',
+            furnitureScale: prev.mode === 'day' ? 4 : 2,
+        }));
+    };
+    
+    function createPlate(x, y, scale, sprite) {
+        return Bodies.rectangle(window.innerWidth * x, window.innerHeight * y, 1000 * scale, 50 * scale, {
+            isStatic: true,
+            render: {
+                sprite: {
+                    texture: sprite,
+                    xScale: scale,
+                    yScale: scale
+                }
+            }
+        });
+    }
+    
+    function createStand(x, y, scale, sprite) {
+        return Bodies.rectangle(window.innerWidth * x, window.innerHeight * y, 200 * scale, 300 * scale, {
+            isStatic: true,
+            render: {
+                sprite: {
+                    texture: sprite,
+                    xScale: scale,
+                    yScale: scale
+                }
+            }
+        });
+    }
+    
+    function createFood(config, x, y) {
+        const scale = scene.worldScale * config.scale;
+        return Bodies.rectangle(window.innerWidth * x, window.innerHeight * y, config.width * scale, config.height * scale, {
+            label: config.label,
+            render: {
+                sprite: {
+                    texture: config.sprite,
+                    xScale: scale,
+                    yScale: scale,        
+                }
+            },
+            collisionFilter: {
+                category: scene.foodCategory,
+                mask: scene.foodCategory | scene.wallCategory // Only collide with other food and walls
+            },
+            density: 0.005,  // Lower for lighter objects
+            friction: 0.5,   // Friction with surfaces
+            frictionAir: 0.05, // Air friction
+            restitution: 0.7, // Bounciness
+            isStatic: false,                
+        });
+    }
+
+    const addScene = () => {
+        Composite.clear(engine.current.world);
+        const plateSprite = '/foods/plate-top.webp';
+        const standSprite = '/objects/tea-set-dummy-stand-2.webp';
+        const plate = createPlate(0.5, 0.75, 1, plateSprite);
+        const stand = createStand(0.5, 0.75, 1, standSprite);
+        World.add(engine.current.world, [plate]);
+    };
+
+    const addNewFoodOnClick = (event) => {
+      // Optionally, you can use the event to get the click position and use it
+      const rect = interactionAreaRef.current.getBoundingClientRect();
+      const xPosition = (event.clientX - rect.left) / rect.width;
+      const yPosition = (event.clientY - rect.top) / rect.height;
+      addNewFood(xPosition, yPosition);
   };
 
-  return (
-    <div ref={interactionAreaRef}>
-      {/* Render elements and controls here */}
-      <button onClick={swapWorld}>Swap World</button>
-    </div>
-  );
+  const addNewFood = (x = 0.5, y = 0.1) => {
+    const foodConfig = foodList[scene.mode][Math.floor(Math.random() * foodList[scene.mode].length)];
+    const newFood = createFood(foodConfig, x, y);
+    World.add(engine.current.world, newFood);
+    setScene(prev => ({
+        ...prev,
+        food: [...prev.food, newFood], // Keep track of food added
+        nextFood: newFood
+    }));
+};
+
+    useEffect(() => {
+        addScene();
+        addNewFood();
+    }, [scene.mode]); // Rerun when mode changes
+
+    return (
+        <div>
+            <div ref={interactionAreaRef} id="container" onClick={addNewFoodOnClick}></div>
+            <div className="controls">
+                <input type="checkbox" name="switch" id="switch" />
+                <div className="switch-guard"></div>
+                <label className="switch" htmlFor="switch" onClick={swapWorld}>
+                    <span className="before">Day Mode</span>
+                    <span className="after">Night Mode</span>
+                </label>
+            </div>
+        </div>
+    );
 };
 
 export default GameComponent;
+
