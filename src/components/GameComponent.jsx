@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Engine, Render, Runner, World, Bodies, Composite, Mouse, MouseConstraint } from 'matter-js';
+import { Engine, Render, Runner, World, Bodies, Composite, Mouse, MouseConstraint, Events } from 'matter-js';
 import { foodList } from './utils/data/foodList';
 
 const GameComponent = () => {
@@ -8,6 +8,7 @@ const GameComponent = () => {
         worldScale: Math.min(window.innerWidth, window.innerHeight) / 1500,
         furnitureScale: 1,
         food: [],
+        mouseCategory: 11,
         nextFood: null,
         walls: false,
         platesCategory: 2,
@@ -37,7 +38,7 @@ const GameComponent = () => {
                     wireframes: false,
                 },
             });
-    
+                            
             Render.run(render);
             Runner.run(runner.current, engine.current);
     
@@ -45,15 +46,34 @@ const GameComponent = () => {
             const mouse = Mouse.create(render.canvas);
     
             // Create Mouse Constraint without collision filtering to see if it works generally
-            const mouseConstraint = MouseConstraint.create(engine.current, {
-                mouse: mouse,
-                constraint: {
-                    stiffness: 1,
-                    render: { visible: true } // Set visible to true for debugging
-                }
-            });
+        const mouseConstraint = MouseConstraint.create(engine.current, {
+            mouse: mouse,
+            constraint: {
+                stiffness: 0.2,
+                render: {
+                    visible: false,
+                },
+            },
+        });
+            // Event listener for detecting dragging of food objects
+Events.on(mouseConstraint, "startdrag", (event) => {
+    const foodObject = event.body;
+    if (foodObject.label) {
+        // Disable collision between the dragged food object and other bodies
+        foodObject.collisionFilter.mask = 0;
+    }
+});
+
+// Event listener for re-enabling collision when dragging ends
+Events.on(mouseConstraint, "enddrag", (event) => {
+    const foodObject = event.body;
+    if (foodObject.label) {
+        // Re-enable collision between the dragged food object and other bodies
+        foodObject.collisionFilter.mask = scene.foodCategory | scene.wallCategory;
+    }
+});
             World.add(engine.current.world, mouseConstraint);
-    
+
             return () => {
                 Render.stop(render);
                 Runner.stop(runner.current);
@@ -113,28 +133,28 @@ const GameComponent = () => {
         });
     }
     
-    function createFood(config, x, y) {
-        const scale = scene.worldScale * config.scale;
-        return Bodies.rectangle(window.innerWidth * x, window.innerHeight * y, config.width * scale, config.height * scale, {
-            label: config.label,
-            render: {
-                sprite: {
-                    texture: config.sprite,
-                    xScale: scale,
-                    yScale: scale,        
-                }
-            },
-            collisionFilter: {
-                category: scene.foodCategory,
-                mask: scene.foodCategory | scene.wallCategory // Only collide with other food and walls
-            },
-            density: 0.005,  // Lower for lighter objects
-            friction: 0.5,   // Friction with surfaces
-            frictionAir: 0.05, // Air friction
-            restitution: 0.7, // Bounciness
-            isStatic: false,                
-        });
-    }
+function createFood(config, x, y) {
+    const scale = scene.worldScale * config.scale;
+    return Bodies.rectangle(window.innerWidth * x, window.innerHeight * y, config.width * scale, config.height * scale, {
+        label: config.label,
+        render: {
+            sprite: {
+                texture: config.sprite,
+                xScale: scale,
+                yScale: scale,        
+            }
+        },
+        density: 0.005,
+        friction: 0.5,
+        frictionAir: 0.05,
+        restitution: 0.7,
+        isStatic: false,
+                collisionFilter: {
+            category: scene.foodCategory,
+            mask: scene.foodCategory | scene.wallCategory,
+        },
+    });
+}
 
     const addScene = () => {
         Composite.clear(engine.current.world);
@@ -143,6 +163,17 @@ const GameComponent = () => {
         const plate = createPlate(0.5, 0.75, 1, plateSprite);
         const stand = createStand(0.5, 0.75, 1, standSprite);
         World.add(engine.current.world, [plate]);
+
+        // Create collision filter for food objects
+        const foodCollisionFilter = {
+            category: scene.foodCategory,
+            mask: scene.foodCategory | scene.wallCategory,
+        };
+
+        // Apply collision filter to existing food objects
+        scene.food.forEach(food => {
+            food.collisionFilter = foodCollisionFilter;
+        });
     };
 
     const addNewFoodOnClick = (event) => {
@@ -153,17 +184,23 @@ const GameComponent = () => {
       addNewFood(xPosition, yPosition);
   };
 
-  const addNewFood = (x = 0.5, y = 0.1) => {
+const addNewFood = (x = 0.5, y = 0.1) => {
     const foodConfig = foodList[scene.mode][Math.floor(Math.random() * foodList[scene.mode].length)];
     const newFood = createFood(foodConfig, x, y);
+    
+    // Apply collision filter to the food object
+    newFood.collisionFilter = {
+        category: scene.foodCategory,
+        mask: scene.foodCategory | scene.wallCategory,
+    };
+    
     World.add(engine.current.world, newFood);
     setScene(prev => ({
         ...prev,
-        food: [...prev.food, newFood], // Keep track of food added
+        food: [...prev.food, newFood],
         nextFood: newFood
     }));
 };
-
     useEffect(() => {
         addScene();
         addNewFood();
