@@ -35,7 +35,7 @@ function NewComponent(props) {
         },
         density: 0.005,
         friction: 0.5,
-        frictionAir: 0.03,
+        frictionAir: 0.025,
         restitution: 0.7,
         mass: 10,
       });
@@ -67,13 +67,13 @@ function NewComponent(props) {
 
     // Add boundaries
     World.add(engine.current.world, [
-      Bodies.rectangle(window.innerWidth * 0.5, window.innerHeight * 0.85, 1000 * 1.4, 50 * 1.4, {
+      Bodies.rectangle(window.innerWidth * 0.5, window.innerHeight * 0.85, 1000 * 1.31, 50 * 1.4, {
         isStatic: true,
         render: {
           sprite: {
             texture: "/foods/plate-top.webp",
-            xScale: 1.4,
-            yScale: 1.4
+            xScale: 1.1,
+            yScale: 1.1
           },
         }
       }),
