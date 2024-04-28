@@ -68,13 +68,19 @@ function NewComponent(props) {
     // Add boundaries
     World.add(engine.current.world, [
       Bodies.rectangle(window.innerWidth * 0.5, window.innerHeight * 0.85, 1000 * 1.31, 50 * 1.4, {
-        isStatic: true,
+        isStatic: false,
         render: {
           sprite: {
             texture: "/foods/plate-top.webp",
             xScale: 1.1,
             yScale: 1.1
           },
+        }
+      }),
+      Bodies.rectangle(cw / 2, ch, cw, 50, { // Position it at the bottom of the canvas
+        isStatic: true,
+        render: {
+          visible: false // Make the floor invisible
         }
       }),
     ]);
