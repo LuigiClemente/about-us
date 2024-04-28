@@ -71,9 +71,9 @@ function NewComponent(props) {
         isStatic: false,
         render: {
           sprite: {
-            texture: "/foods/plate-top.webp",
-            xScale: 1.1,
-            yScale: 1.1
+            texture: "/foods-2/cutting-board.webp",
+            xScale: 0.5,
+            yScale: 0.5
           },
         }
       }),
