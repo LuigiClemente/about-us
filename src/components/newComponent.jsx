@@ -33,10 +33,10 @@ function NewComponent(props) {
             yScale: scale,
           }
         },
-        density: 0.01,  // Increased for more realistic mass
-        friction: 0.2,   // Adjusted for more realistic sliding behavior
-        frictionAir: 0.01, // Reduced for less air resistance
-        restitution: 0.7, // Adjusted for more realistic bounciness
+        // density: 0.01,  // Increased for more realistic mass
+        // friction: 0.2,   // Adjusted for more realistic sliding behavior
+        // frictionAir: 0.01, // Reduced for less air resistance
+        // restitution: 0.7, // Adjusted for more realistic bounciness
         // chamfer: { radius: 50 }, // Adds rounded corners
 
       });
