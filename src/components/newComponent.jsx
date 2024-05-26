@@ -123,6 +123,16 @@ function NewComponent(props) {
     };
   }, []);
 
+  const update = () => {
+    const timeScale = 1; // Adjust this value as needed
+    Engine.update(engine.current, 1000 / 60, timeScale);
+    requestAnimationFrame(update);
+  };
+  
+  useEffect(() => {
+    update(); // Start the update loop
+    return () => cancelAnimationFrame(update); // Cleanup on unmount
+  }, []);
   
 
   return (
