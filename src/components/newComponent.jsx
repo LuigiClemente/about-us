@@ -5,7 +5,7 @@ import { foodList } from './utils/data/foodList';
 function NewComponent(props) {
   const scene = useRef();
   const engine = useRef(Engine.create());
-  const [isDragging, setIsDragging] = useState(false);  // State to track if dragging is happening
+  const [isDragging, setIsDragging] = useState(false);
   const [sceneData, setSceneData] = useState({
     mode: 'night',
     worldScale: Math.min(window.innerWidth, window.innerHeight) / 1500,
@@ -18,9 +18,9 @@ function NewComponent(props) {
     standsCategory: 4,
     wallCategory: 3,
   });
-  
+
   const addNewFood = (x, y) => {
-    if (!isDragging) {  // Only add new food if not dragging
+    if (!isDragging) {
       const foodConfig = foodList[sceneData.mode][Math.floor(Math.random() * foodList[sceneData.mode].length)];
       const scale = sceneData.worldScale * foodConfig.scale;
       const newFood = Bodies.rectangle(window.innerWidth * x, window.innerHeight * y, foodConfig.width * scale, foodConfig.height * scale, {
@@ -33,21 +33,17 @@ function NewComponent(props) {
             yScale: scale,
           }
         },
-        // density: 0.01,  // Increased for more realistic mass
-        // friction: 0.2,   // Adjusted for more realistic sliding behavior
-        // frictionAir: 0.01, // Reduced for less air resistance
-        // restitution: 0.7, // Adjusted for more realistic bounciness
-        // chamfer: { radius: 50 }, // Adds rounded corners
-
       });
+      const cw = window.innerWidth;
+  
+      if (foodConfig.pathData) {
+        const vertices = Matter.Vertices.fromPath(foodConfig.pathData).map(vertex => ({
+          x: vertex.x * scale  * (cw < 700 ? 0.8 : 1),
+          y: vertex.y * scale  * (cw < 700 ? 0.8 : 1),
+        }));
+        Matter.Body.setVertices(newFood, vertices);
+      }
 
-          // Add pathData to define the shape
-    if (foodConfig.pathData) {
-      const path = foodConfig.pathData;
-      const vertices = Matter.Vertices.fromPath(path);
-      Matter.Body.setVertices(newFood, vertices);
-    }
-      
       World.add(engine.current.world, [newFood]);
     }
   };
@@ -59,9 +55,28 @@ function NewComponent(props) {
     addNewFood(xPosition, yPosition);
   };
 
+  const addNewFoodOnTouch = (event) => {
+    const rect = scene.current.getBoundingClientRect();
+    const xPosition = (event.touches[0].clientX - rect.left) / rect.width;
+    const yPosition = (event.touches[0].clientY - rect.top) / rect.height;
+    addNewFood(xPosition, yPosition);
+  };
+
   useEffect(() => {
-    const cw = document.body.clientWidth;
-    const ch = document.body.clientHeight;
+    const updateWorldScale = () => {
+      setSceneData((prev) => ({
+        ...prev,
+        worldScale: Math.min(window.innerWidth, window.innerHeight) / 1500,
+      }));
+    };
+
+    updateWorldScale();
+    window.addEventListener('resize', updateWorldScale);
+
+    const cw = window.innerWidth;
+    const ch = window.innerHeight;
+
+    const plateScale = cw < 700 ? 0.61 : 1.62;  // Adjust scale based on window width
 
     const render = Render.create({
       element: scene.current,
@@ -69,35 +84,33 @@ function NewComponent(props) {
       options: {
         width: cw,
         height: ch,
-        wireframes:false,
+        wireframes: false,
         background: '#fffafa',
       }
     });
 
-    // Add boundaries
     World.add(engine.current.world, [
-      Bodies.rectangle(window.innerWidth * 0.5, window.innerHeight * 0.85, 1000 * 1.6, 50 * 3.2,{
+      Bodies.rectangle(window.innerWidth * 0.5, window.innerHeight * 0.85, 1000 * plateScale, cw < 700 ? 200 : 150 * plateScale, {
         isStatic: false,
         render: {
           sprite: {
             texture: "https://res.cloudinary.com/dizm8txou/image/upload/v1716066209/about-us/foods-2/plate-mid_ut7say.webp",
-            xScale: 1.62,
-            yScale: 1.62
+            xScale: plateScale,
+            yScale: plateScale
           },
         }
       }),
-      Bodies.rectangle(window.innerWidth * 0.55, ch, 1000 * 1.4, 5,  { // Position it at the bottom of the canvas
+      Bodies.rectangle(window.innerWidth * 0.55, ch, 1000 * 1.4, 5, {
         isStatic: true,
         render: {
-          visible: false // Make the floor invisible
+          visible: false
         }
       }),
     ]);
 
-    // Run the engine and renderer
     Runner.run(engine.current);
     Render.run(render);
-    // Set up mouse interaction
+
     const mouse = Mouse.create(render.canvas);
     const mouseConstraint = MouseConstraint.create(engine.current, {
       mouse: mouse,
@@ -111,7 +124,6 @@ function NewComponent(props) {
     Events.on(mouseConstraint, 'startdrag', () => setIsDragging(true));
     Events.on(mouseConstraint, 'enddrag', () => setIsDragging(false));
 
-    // Ensure proper cleanup on unmount
     return () => {
       Render.stop(render);
       World.clear(engine.current.world);
@@ -120,24 +132,29 @@ function NewComponent(props) {
       render.canvas = null;
       render.context = null;
       render.textures = {};
+      window.removeEventListener('resize', updateWorldScale);
     };
   }, []);
 
   const update = () => {
-    const timeScale = 1; // Adjust this value as needed
+    const timeScale = 1;
     Engine.update(engine.current, 1000 / 60, timeScale);
     requestAnimationFrame(update);
   };
-  
+
   useEffect(() => {
-    update(); // Start the update loop
-    return () => cancelAnimationFrame(update); // Cleanup on unmount
+    update();
+    return () => cancelAnimationFrame(update);
   }, []);
-  
 
   return (
     <div>
-      <div onMouseUp={addNewFoodOnClick} ref={scene} style={{ width: '100vw', height: '100vh' }} />
+      <div
+        onMouseUp={addNewFoodOnClick}
+        onTouchStart={addNewFoodOnTouch}
+        ref={scene}
+        style={{ width: '100vw', height: '100vh' }}
+      />
     </div>
   );
 }
