@@ -90,7 +90,7 @@ function NewComponent(props) {
     });
 
     World.add(engine.current.world, [
-      Bodies.rectangle(window.innerWidth * 0.5, window.innerHeight * 0.85, 1000 * plateScale, cw < 700 ? 200 : 150 * plateScale, {
+      Bodies.rectangle(window.innerWidth * 0.5, window.innerHeight * 0.85, 1000 * 1.6, cw < 700 ? 50 * 2 : 50 * 3.2, {
         isStatic: false,
         render: {
           sprite: {
