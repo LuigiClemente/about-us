@@ -38,8 +38,8 @@ function NewComponent(props) {
   
       if (foodConfig.pathData) {
         const vertices = Matter.Vertices.fromPath(foodConfig.pathData).map(vertex => ({
-          x: vertex.x * scale  * (cw < 700 ? 0.8 : 1),
-          y: vertex.y * scale  * (cw < 700 ? 0.8 : 1),
+          x: vertex.x  * (cw < 600 ? scale * 0.8 : 1),
+          y: vertex.y  * (cw < 600 ? scale * 0.8 : 1),
         }));
         Matter.Body.setVertices(newFood, vertices);
       }
