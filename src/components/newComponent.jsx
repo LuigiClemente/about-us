@@ -18,13 +18,6 @@ function NewComponent(props) {
     standsCategory: 4,
     wallCategory: 3,
   });
-
-  const scalePathData = (pathData, scale) => {
-    return pathData.split(' ').map(coord => (parseFloat(coord) * scale).toFixed(2)).join(' ');
-  };
-  const scaledPathData = scalePathData("136 7 202 24 244 108 305 115 289 144 226 144 190 171 118 158 7 66", 0.8)
-
-  console.log(scaledPathData)
   
   const addNewFood = (x, y) => {
     if (!isDragging) {  // Only add new food if not dragging
@@ -40,10 +33,10 @@ function NewComponent(props) {
             yScale: scale,
           }
         },
-        // density: 0.01,  // Increased for more realistic mass
-        // friction: 0.2,   // Adjusted for more realistic sliding behavior
-        // frictionAir: 0.01, // Reduced for less air resistance
-        // restitution: 0.7, // Adjusted for more realistic bounciness
+        density: 0.01,  // Increased for more realistic mass
+        friction: 0.2,   // Adjusted for more realistic sliding behavior
+        frictionAir: 0.01, // Reduced for less air resistance
+        restitution: 0.7, // Adjusted for more realistic bounciness
         // chamfer: { radius: 50 }, // Adds rounded corners
 
       });
