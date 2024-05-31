@@ -136,15 +136,15 @@ function NewComponent(props) {
     };
   }, []);
 
-  const update = () => {
-    const timeScale = 1;
-    Engine.update(engine.current, 1000 / 60, timeScale);
-    requestAnimationFrame(update);
-  };
-
   useEffect(() => {
-    update();
-    return () => cancelAnimationFrame(update);
+    const update = () => {
+      const timeScale = 1;
+      Engine.update(engine.current, 1000 / 60, timeScale);
+      requestAnimationFrame(update);
+    };
+    
+    const animationFrameId = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
   return (
